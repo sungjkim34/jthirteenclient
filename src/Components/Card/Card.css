@@ -1,0 +1,14 @@
+.selected-card {
+    display: inline-block;
+    border: 2px solid;
+    border-radius: 7px;
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+    padding: 3px 3px 0px 3px;
+}
+
+.unselected-card {
+    display: inline-block;
+    padding: 3px 3px 0px 3px;
+}

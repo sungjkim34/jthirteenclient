@@ -1,0 +1,10 @@
+.App {
+    /*text-align: center;*/
+    margin: 20px;
+}
+
+@media (max-width: 976px) {
+    .App {
+        margin: unset;
+    }
+}

@@ -1,0 +1,18 @@
+.header-container {
+    text-align: center;
+}
+
+.game-field {
+    width: 75vw;
+    margin: 0 auto;
+    text-align: center;
+}
+
+@media (max-width: 976px) {
+    .game-field {
+        width: unset;
+    }
+    .comment-section {
+        margin: 20px;
+    }
+}
