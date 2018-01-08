@@ -70,8 +70,12 @@ class Play extends Component {
         });
 
         this.state.socket.on('opponentSkippedTurn', () => {
+            // Improve logic to check that everyone else has skipped turns too.
             console.log('opponentSkippedTurn');
             this.setState({isMyTurn: true});
+
+            // Check that everyone skipped turns.
+            this.setState({lastPlayedCards: []});
         });
 
         this.state.socket.on('opponentPlayerWon', () => {
