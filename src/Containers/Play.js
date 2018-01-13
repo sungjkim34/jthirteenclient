@@ -197,6 +197,7 @@ class Play extends Component {
                     {this.state.opponentPlayerWon &&
                         <div>
                             <h1>Sorry you lost!!!!</h1>
+                            <img height={250} width={250} src={require('../loser.png')} alt=''/>
                             <div className="last-played-cards">
                             <h5>Last played cards:</h5>
                             {this.state.lastPlayedCards.map(card => <Card key={`${card.suit}${card.rank}`}
