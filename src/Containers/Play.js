@@ -5,7 +5,7 @@ import update from 'immutability-helper';
 import {DragDropContext} from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import Card from '../Components/Card/Card';
-import { Button, Comment, Form, Header, Icon} from 'semantic-ui-react'
+import { Button, Comment, Form, Header, Icon, Image } from 'semantic-ui-react'
 import { serverURL } from '../Constants';
 import moment from 'moment';
 import { isEqual } from 'lodash';
@@ -162,6 +162,11 @@ class Play extends Component {
         this.setState({messageText: ''});
     };
 
+
+    sendAmy = () => {
+        this.state.socket.emit('sendMessage', 'AmyEmoji', this.state.playerName, Date.now());
+    };
+
     isPlayCardsBtnDisabled = () => {
         if (!this.state.isMyTurn) {
             return true;
@@ -240,6 +245,7 @@ class Play extends Component {
                                 <Form.Input placeholder='Name' value={this.state.playerName} onChange={(event, data) => this.setState({playerName: data.value})} width={2}/>
                                 <Form.Input placeholder='Enter Message' value={this.state.messageText} onChange={(event, data) => this.setState({messageText: data.value})} width={8}/>
                                 <Button disabled={!this.state.messageText || !this.state.playerName} onClick={() => this.sendMessage()} icon='send' content='Send'/>
+                                <Button disabled={!this.state.playerName} onClick={() => this.sendAmy()} content="Amy"/>
                             </Form.Group>
                         </Form>
                     {
@@ -251,7 +257,7 @@ class Play extends Component {
                                         {i === 0 && <Icon name='alarm'/>}
                                         <div>{moment(message.date).format('MMM DD, YYYY [at] hh:mma')}</div>
                                     </Comment.Metadata>
-                                    <Comment.Text>{message.text}</Comment.Text>
+                                    <Comment.Text>{message.text === 'AmyEmoji' ? <Image src={require('../loser.png')} size='mini' /> : message.text}</Comment.Text>
                                 </Comment.Content>
                             </Comment>
                         )
