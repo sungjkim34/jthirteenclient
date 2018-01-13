@@ -29,7 +29,9 @@ class Play extends Component {
             messageText: '',
             playerName: '',
             messages: [],
-            notificationBell: new Audio(require('../notification.mp3'))
+            notificationBell: new Audio(require('../sounds/receiveMessage.mp3')),
+            dealCardsBell: new Audio(require('../sounds/dealCards.mp3')),
+            playCardsBell: new Audio(require('../sounds/playCards.mp3'))
         };
 
         this.state.socket.on('hostPlayer', () => {
@@ -49,7 +51,6 @@ class Play extends Component {
         this.state.socket.on('dealCards', cards => {
             // if its first round must play with 3 of spade
             cards.map((card, i) => card['id'] = i);
-            console.log(cards);
             this.setState({
                 gameInProgress: true,
                 playerWon: false,
@@ -59,6 +60,7 @@ class Play extends Component {
                 selectedCards: [],
                 cards
             });
+            this.state.dealCardsBell.play();
         });
 
         this.state.socket.on('opponentPlayedCards', opponentPlayedCards => {
@@ -68,6 +70,7 @@ class Play extends Component {
                 lastPlayedCards: opponentPlayedCards,
                 opponentPlayedCards
             });
+            this.state.playCardsBell.play();
         });
 
         this.state.socket.on('opponentSkippedTurn', () => {
