@@ -28,7 +28,8 @@ class Play extends Component {
             opponentPlayerWon: false,
             messageText: '',
             playerName: '',
-            messages: []
+            messages: [],
+            notificationBell: new Audio(require('../notification.mp3'))
         };
 
         this.state.socket.on('hostPlayer', () => {
@@ -90,6 +91,9 @@ class Play extends Component {
 
         this.state.socket.on('sendMessage', message => {
             this.setState({messages: [...this.state.messages, message]});
+            if(message.socketId !== this.state.socket.id) {
+                this.state.notificationBell.play();
+            }
         });
     }
 
