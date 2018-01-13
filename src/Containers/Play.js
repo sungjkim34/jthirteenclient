@@ -194,7 +194,16 @@ class Play extends Component {
             <div className="play-container" style={{paddingTop: '75px'}}>
                 <div className="header-container">
                     {this.state.playerWon && <h1>Congrats you won!!!!</h1>}
-                    {this.state.opponentPlayerWon && <h1>Sorry you lost!!!!</h1>}
+                    {this.state.opponentPlayerWon &&
+                        <div>
+                            <h1>Sorry you lost!!!!</h1>
+                            <div className="last-played-cards">
+                            <h5>Last played cards:</h5>
+                            {this.state.lastPlayedCards.map(card => <Card key={`${card.suit}${card.rank}`}
+                                                                          card={card}/>)}
+                            </div>
+                        </div>
+                    }
                     <div>Number of Players: {this.state.numOfPlayers}</div>
                     <div>{this.state.hostPlayer ? 'Please press the button to start the game.' : 'Please wait for the host to start the game.'}</div>
                     <Button disabled={!this.state.hostPlayer || this.state.numOfPlayers > 4} onClick={() => this.startGame()}>Start</Button>
