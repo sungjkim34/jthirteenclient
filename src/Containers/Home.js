@@ -18,6 +18,7 @@ class Home extends Component {
                     <List.Item as='li'>Drag & Drop Sorting</List.Item>
                     <List.Item as='li'>First Connection Host</List.Item>
                     <List.Item as='li'>Lowest Card FIrst Player</List.Item>
+                    <List.Item as='li'>Notification sound for chat and when opponent played cards</List.Item>
                     <List.Item as='li'>Online Multi-player</List.Item>
                     <List.Item as='li'>Skip Turn</List.Item>
                     <List.Item as='li'>Partial support for play cards button disabled logic</List.Item>
@@ -25,9 +26,14 @@ class Home extends Component {
                 <Header as='h3'>Todo List</Header>
                 <List as='ul'>
                     <List.Item as='li'>Ability to gain points</List.Item>
+                    <List.Item as='li'>Button colors (Play cards - green, skip - Red, sort card - whatever)</List.Item>
                     <List.Item as='li'>Creation of custom game rooms</List.Item>
                     <List.Item as='li'>Customization of cards and profile</List.Item>
+                    <List.Item as='li'>Feature: ?? (Toggle on or off) Showing how many cards opponent has left</List.Item>
+                    <List.Item as='li'>Feature: to kick people off</List.Item>
+                    <List.Item as='li'>Feature: Counting how many cards a straight is</List.Item>
                     <List.Item as='li'>Find and fix defects & bugs</List.Item>
+                    <List.Item as='li'>Fix order bug (clicking at different sort)</List.Item>
                     <List.Item as='li'>Guide page</List.Item>
                     <List.Item as='li'>Improve business & game logics</List.Item>
                     <List.Item as='li'>Improve conditionals for selected cards</List.Item>

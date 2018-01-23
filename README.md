@@ -11,6 +11,10 @@ Remake of a popular Vietnamese card game called 'Tien Len' or 'Thirteen' in Engl
 - Ability for multi-player game play through the use of web sockets.
 - Use of Semantic UI.
 - Dragging and Dropping of cards supported.
+- Auto sorting of cards.
+- Chat.
+- Notification sounds for chat, deal cards, and play cards.
+- Skip turn
 
 ## Information
 - React.js front-end.
